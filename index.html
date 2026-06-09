@@ -3,196 +3,190 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Voyage du 4 octobre au 17 novembre 2026</title>
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-font-family:Georgia, serif;
-background:#f5f1ea;
-color:#222;
+  font-family:Georgia,"Times New Roman",serif;
+  background:#f4efe7;
+  color:#1f2a2e;
 }
 
 .hero{
-height:75vh;
-display:grid;
-grid-template-columns:1fr 1fr 1fr;
-position:relative;
-overflow:hidden;
+  min-height:78vh;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  position:relative;
+  overflow:hidden;
 }
 
 .hero::after{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.35);
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(0,0,0,.18),rgba(0,0,0,.62));
+  z-index:1;
 }
 
 .hero img{
-width:100%;
-height:100%;
-object-fit:cover;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  min-height:78vh;
 }
 
 .hero-text{
-position:absolute;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-z-index:2;
-text-align:center;
-color:white;
-width:90%;
+  position:absolute;
+  inset:0;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  padding:30px;
 }
 
 .hero-text h1{
-font-size:4rem;
-margin-bottom:20px;
-text-shadow:0 3px 10px rgba(0,0,0,.5);
+  font-size:clamp(2.4rem,6vw,5rem);
+  line-height:1;
+  margin-bottom:22px;
+  text-shadow:0 4px 18px rgba(0,0,0,.65);
 }
 
 .hero-text p{
-font-size:1.6rem;
-text-shadow:0 3px 10px rgba(0,0,0,.5);
+  font-size:clamp(1.2rem,2.5vw,2rem);
+  text-shadow:0 4px 18px rgba(0,0,0,.65);
 }
 
 .container{
-max-width:1200px;
-margin:auto;
-padding:60px 20px;
+  max-width:1180px;
+  margin:auto;
+  padding:60px 20px;
 }
 
 .cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
 }
 
 .card{
-background:white;
-border-radius:24px;
-overflow:hidden;
-box-shadow:0 10px 30px rgba(0,0,0,.12);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
+  background:#fffaf2;
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 20px 45px rgba(31,42,46,.16);
+  border:1px solid rgba(31,42,46,.12);
 }
 
 .card img{
-width:100%;
-height:220px;
-object-fit:cover;
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  display:block;
 }
 
 .card-content{
-padding:25px;
+  padding:26px;
 }
 
 .card h3{
-margin-bottom:10px;
-font-size:1.5rem;
+  font-size:1.45rem;
+  line-height:1.15;
+  margin-bottom:12px;
 }
 
 .card p{
-margin-bottom:20px;
-line-height:1.6;
+  line-height:1.6;
+  color:#5f5d58;
+  margin-bottom:22px;
 }
 
 .btn{
-display:inline-block;
-padding:12px 25px;
-background:#1d6f78;
-color:white;
-text-decoration:none;
-border-radius:50px;
-font-weight:bold;
-}
-
-.btn:hover{
-background:#14545b;
+  display:inline-block;
+  padding:13px 24px;
+  background:#1d6f78;
+  color:white;
+  text-decoration:none;
+  border-radius:999px;
+  font-family:Arial,sans-serif;
+  font-weight:700;
 }
 
 footer{
-text-align:center;
-padding:40px;
-color:#666;
+  text-align:center;
+  padding:35px 20px 50px;
+  color:#6d6b66;
+  font-family:Arial,sans-serif;
 }
 
+@media(max-width:700px){
+  .hero{grid-template-columns:1fr;min-height:82vh}
+  .hero img{min-height:28vh}
+}
 </style>
 </head>
 
 <body>
 
 <section class="hero">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bora-Bora%20Lagoon%20-%20French%20Polynesia.jpg" alt="Polynésie">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sydney%20Opera%20House%20and%20Harbour%20Bridge%20Dusk%20%283%29%202019-06-21.jpg" alt="Australie">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Milford%20Sound%20%28New%20Zealand%29%20-%2010.jpg" alt="Nouvelle-Zélande">
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Bora_Bora_lagoon.jpg" alt="Polynésie">
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Sydney_Opera_House_and_Harbour_Bridge_Dusk.jpg" alt="Australie">
-
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Milford_Sound_New_Zealand.jpg" alt="Nouvelle-Zélande">
-
-<div class="hero-text">
-<h1>Voyage du 4 octobre au 17 novembre 2026</h1>
-<p>Polynésie Française • Australie • Nouvelle-Zélande</p>
-</div>
-
+  <div class="hero-text">
+    <h1>Voyage du 4 octobre au 17 novembre 2026</h1>
+    <p>Polynésie Française • Australie • Nouvelle-Zélande</p>
+  </div>
 </section>
 
 <div class="container">
+  <div class="cards">
 
-<div class="cards">
+    <div class="card">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Bora-Bora%20Lagoon%20-%20French%20Polynesia.jpg" alt="Polynésie Française">
+      <div class="card-content">
+        <h3>Partie 1 – Polynésie Française</h3>
+        <p>Lagons turquoise, motus, îles volcaniques et culture polynésienne.</p>
+        <a href="partie1.html" class="btn">Découvrir</a>
+      </div>
+    </div>
 
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Mount_Otemanu_Bora_Bora.jpg" alt="Polynésie">
-<div class="card-content">
-<h3>Partie 1 – Polynésie Française</h3>
-<p>Lagons turquoise, motus, culture polynésienne et îles paradisiaques.</p>
-<a href="partie1.html" class="btn">Découvrir</a>
-</div>
-</div>
+    <div class="card">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sydney%20Opera%20House%20and%20Harbour%20Bridge%20Dusk%20%283%29%202019-06-21.jpg" alt="Australie">
+      <div class="card-content">
+        <h3>Partie 2 – Australie</h3>
+        <p>Sydney, la côte australienne et les grandes étapes du voyage.</p>
+        <a href="partie2.html" class="btn">Découvrir</a>
+      </div>
+    </div>
 
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Sydney_Harbour_Bridge_night.jpg" alt="Australie">
-<div class="card-content">
-<h3>Partie 2 – Australie</h3>
-<p>Sydney, la côte australienne et les grandes étapes du voyage.</p>
-<a href="partie2.html" class="btn">Découvrir</a>
-</div>
-</div>
+    <div class="card">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Milford%20Sound%20%28New%20Zealand%29%20-%2010.jpg" alt="Nouvelle-Zélande Sud">
+      <div class="card-content">
+        <h3>Partie 3 – Nouvelle-Zélande Sud</h3>
+        <p>Fiordland, glaciers, lacs alpins et paysages spectaculaires.</p>
+        <a href="partie3.html" class="btn">Découvrir</a>
+      </div>
+    </div>
 
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Milford_Sound_New_Zealand.jpg" alt="NZ Sud">
-<div class="card-content">
-<h3>Partie 3 – Nouvelle-Zélande – Île du Sud</h3>
-<p>Fiordland, glaciers, lacs alpins et paysages spectaculaires.</p>
-<a href="partie3.html" class="btn">Découvrir</a>
-</div>
-</div>
+    <div class="card">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Auckland%20CBD%20skyline%20and%20harbour.jpg" alt="Nouvelle-Zélande Nord">
+      <div class="card-content">
+        <h3>Partie 4 – Nouvelle-Zélande Nord</h3>
+        <p>Culture māorie, volcans, Rotorua et Auckland.</p>
+        <a href="partie4.html" class="btn">Découvrir</a>
+      </div>
+    </div>
 
-<div class="card">
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Auckland_skyline.jpg" alt="NZ Nord">
-<div class="card-content">
-<h3>Partie 4 – Nouvelle-Zélande – Île du Nord</h3>
-<p>Culture māorie, volcans, Rotorua et Auckland.</p>
-<a href="partie4.html" class="btn">Découvrir</a>
-</div>
-</div>
-
-</div>
-
+  </div>
 </div>
 
 <footer>
-Voyage du 4 octobre au 17 novembre 2026
+  Voyage du 4 octobre au 17 novembre 2026
 </footer>
 
 </body>
