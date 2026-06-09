@@ -1,33 +1,119 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Partie 1 : Polynésie</title>
-  <style>
-    :root { --paper:#fffaf2; --ink:#1f2a2e; --muted:#6d6b66; --accent:#1d6f78; --accent2:#b8753b; --shadow:0 24px 60px rgba(31,42,46,.18); --radius:30px; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Georgia,"Times New Roman",serif; color:var(--ink); background:radial-gradient(circle at top left, rgba(29,111,120,.18), transparent 34rem), radial-gradient(circle at top right, rgba(184,117,59,.16), transparent 30rem), linear-gradient(180deg,#f6f0e8,#efe7dc); line-height:1.65; }
-    .page { max-width:1000px; min-height:100vh; margin:0 auto; padding:28px 18px 70px; display:flex; align-items:center; }
-    .panel { width:100%; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); background:var(--paper); }
-    .visual { min-height:440px; background:linear-gradient(rgba(0,0,0,.20), rgba(0,0,0,.64)), url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Bora_Bora_Mount_Otemanu.jpg") center/cover no-repeat; color:white; display:flex; align-items:flex-end; padding:44px; }
-    .visual h1 { font-size:clamp(2.2rem,6vw,5rem); line-height:1; letter-spacing:-.055em; margin:0; }
-    .body { padding:34px; font-size:1.15rem; }
-    .kicker { color:var(--accent2); text-transform:uppercase; letter-spacing:.16em; font-size:.78rem; font-weight:700; font-family:Arial,sans-serif; margin-bottom:10px; }
-    .home-button { display:inline-block; margin-top:18px; padding:13px 20px; border-radius:999px; background:var(--accent); color:white; text-decoration:none; font-family:Arial,sans-serif; font-weight:700; }
-    @media(max-width:700px) { .page { padding:14px 10px 48px; } .visual { min-height:340px; padding:28px; } .body { padding:24px; } }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Partie 1 - Polynésie Française</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Georgia, serif;
+background:#f5f1ea;
+color:#222;
+}
+
+.hero{
+height:80vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+
+background:
+linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.55)),
+url("https://upload.wikimedia.org/wikipedia/commons/5/53/Overwater_bungalows_Bora_Bora.jpg")
+center/cover;
+}
+
+.hero h1{
+font-size:4rem;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:1.5rem;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:60px 25px;
+}
+
+.card{
+background:white;
+padding:50px;
+border-radius:24px;
+box-shadow:0 10px 30px rgba(0,0,0,.12);
+text-align:center;
+}
+
+.card h2{
+font-size:2.5rem;
+margin-bottom:25px;
+}
+
+.card p{
+font-size:1.2rem;
+line-height:1.8;
+}
+
+.btn{
+display:inline-block;
+margin-top:35px;
+padding:15px 35px;
+background:#1d6f78;
+color:white;
+text-decoration:none;
+border-radius:50px;
+font-weight:bold;
+}
+
+.btn:hover{
+background:#14545b;
+}
+
+</style>
 </head>
+
 <body>
-  <main class="page">
-    <section class="panel">
-      <div class="visual"><div><div class="kicker">Partie 1</div><h1>Polynésie</h1></div></div>
-      <div class="body">
-        <p>Cette page est en construction.</p>
-        <p>Le contenu détaillé sera ajouté dans une prochaine étape.</p>
-        <a class="home-button" href="index.html">← Retour à l’accueil</a>
-      </div>
-    </section>
-  </main>
+
+<section class="hero">
+<div>
+<h1>Partie 1</h1>
+<p>Polynésie Française</p>
+</div>
+</section>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Programme en cours de construction</h2>
+
+<p>
+Cette première partie du voyage sera consacrée à la découverte de la Polynésie Française.
+</p>
+
+<p>
+Lagons turquoise, montagnes volcaniques, motus, navigation, culture polynésienne et hébergements d'exception seront au programme.
+</p>
+
+<p>
+L'itinéraire détaillé sera ajouté prochainement.
+</p>
+
+<a href="index.html" class="btn">
+← Retour à l'accueil
+</a>
+
+</div>
+
+</div>
+
 </body>
 </html>
