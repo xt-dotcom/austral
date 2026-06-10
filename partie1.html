@@ -1,119 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Partie 1 - Polynésie Française</title>
-
-<style>
-
-body{
-margin:0;
-font-family:Georgia, serif;
-background:#f5f1ea;
-color:#222;
-}
-
-.hero{
-height:80vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-
-background:
-linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.55)),
-url("https://upload.wikimedia.org/wikipedia/commons/5/53/Overwater_bungalows_Bora_Bora.jpg")
-center/cover;
-}
-
-.hero h1{
-font-size:4rem;
-margin-bottom:15px;
-}
-
-.hero p{
-font-size:1.5rem;
-}
-
-.container{
-max-width:1000px;
-margin:auto;
-padding:60px 25px;
-}
-
-.card{
-background:white;
-padding:50px;
-border-radius:24px;
-box-shadow:0 10px 30px rgba(0,0,0,.12);
-text-align:center;
-}
-
-.card h2{
-font-size:2.5rem;
-margin-bottom:25px;
-}
-
-.card p{
-font-size:1.2rem;
-line-height:1.8;
-}
-
-.btn{
-display:inline-block;
-margin-top:35px;
-padding:15px 35px;
-background:#1d6f78;
-color:white;
-text-decoration:none;
-border-radius:50px;
-font-weight:bold;
-}
-
-.btn:hover{
-background:#14545b;
-}
-
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partie 1 : Polynésie Française</title>
+  <style>
+    :root {
+      --bg: #f4efe7; --paper: #fffaf2; --ink: #1f2a2e; --muted: #6d6b66;
+      --accent: #1d6f78; --accent2: #b8753b; --line: rgba(31,42,46,.13);
+      --shadow: 0 22px 52px rgba(31,42,46,.14); --radius: 28px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; font-family: Georgia,"Times New Roman",serif; color:var(--ink); background: radial-gradient(circle at top left, rgba(29,111,120,.18), transparent 32rem), radial-gradient(circle at top right, rgba(184,117,59,.16), transparent 28rem), linear-gradient(180deg,#f6f0e8,#efe7dc); line-height:1.65; }
+    .page { max-width:1120px; margin:0 auto; padding:28px 18px 80px; }
+    .hero { min-height:78vh; border-radius:var(--radius); overflow:hidden; position:relative; box-shadow:var(--shadow); background: linear-gradient(rgba(0,0,0,.20),rgba(0,0,0,.62)), url("https://commons.wikimedia.org/wiki/Special:FilePath/Bora-Bora%20Lagoon%20-%20French%20Polynesia.jpg") center/cover no-repeat; display:flex; align-items:flex-end; padding:48px; color:white; }
+    .hero h1 { font-size:clamp(2.3rem,6vw,5.4rem); line-height:1; margin:0 0 14px; letter-spacing:-.055em; max-width:920px; }
+    .hero h2 { font-size:clamp(1.15rem,2.3vw,2rem); font-weight:400; margin:0; max-width:820px; }
+    .intro { background:rgba(255,250,242,.9); backdrop-filter:blur(10px); border:1px solid var(--line); border-radius:var(--radius); margin:-34px auto 42px; position:relative; z-index:2; padding:30px; box-shadow:var(--shadow); max-width:960px; font-size:1.15rem; }
+    .card { background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); margin:28px 0 46px; }
+    .photo { width:100%; height:430px; object-fit:cover; display:block; background:#ddd; }
+    .content { padding:34px; }
+    .kicker { color:var(--accent2); text-transform:uppercase; letter-spacing:.16em; font-size:.78rem; font-weight:700; font-family:Arial,sans-serif; margin-bottom:8px; }
+    h3 { font-size:clamp(1.8rem,3.2vw,3rem); line-height:1.08; margin:0 0 10px; letter-spacing:-.04em; }
+    h4 { font-size:1.35rem; margin:28px 0 8px; color:var(--accent); }
+    .hotel { color:var(--muted); font-style:italic; margin-bottom:18px; }
+    .facts { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; margin:24px 0; font-family:Arial,sans-serif; }
+    .fact { background:rgba(29,111,120,.08); border:1px solid rgba(29,111,120,.14); border-radius:18px; padding:14px 16px; font-size:.96rem; }
+    .fact strong { display:block; color:var(--accent); font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; margin-bottom:2px; }
+    .activity { border-left:4px solid var(--accent2); padding-left:18px; margin-top:24px; }
+    .badges { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; font-family:Arial,sans-serif; }
+    .badge { border-radius:999px; padding:8px 12px; background:rgba(184,117,59,.12); color:#714118; font-size:.86rem; font-weight:700; }
+    .split-photo { display:grid; grid-template-columns:1fr 1fr; gap:0; }
+    .split-photo img { width:100%; height:340px; object-fit:cover; display:block; background:#ddd; }
+    .feature { border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); margin:54px 0; background:var(--ink); color:white; }
+    .feature-visual { min-height:480px; background: linear-gradient(rgba(0,0,0,.20),rgba(0,0,0,.64)), url("https://commons.wikimedia.org/wiki/Special:FilePath/1%20Rangiroa%20Blue%20Lagoon%201.jpg") center/cover no-repeat; padding:44px; display:flex; align-items:flex-end; }
+    .feature-body { padding:34px; }
+    .feature .facts .fact { background:rgba(255,255,255,.13); border-color:rgba(255,255,255,.20); color:white; }
+    .feature .fact strong { color:#f7d6a8; }
+    .finale { background:var(--ink); color:white; border-radius:var(--radius); padding:38px; box-shadow:var(--shadow); margin-top:54px; }
+    .finale h3 { color:#f7d6a8; }
+    .home-link-wrap { text-align:center; margin:48px 0 10px; }
+    .home-link { display:inline-block; padding:14px 26px; border-radius:999px; background:var(--accent); color:white; text-decoration:none; font-family:Arial,sans-serif; font-weight:700; box-shadow:0 12px 28px rgba(31,42,46,.18); }
+    .home-link:hover { background:#155760; }
+    .credits { margin-top:24px; color:var(--muted); font-size:.88rem; font-family:Arial,sans-serif; }
+    ul { padding-left:1.2rem; } li { margin:.35rem 0; }
+    @media (max-width:700px) { .page{padding:14px 10px 48px}.hero{padding:28px;min-height:62vh}.photo{height:285px}.content{padding:24px}.intro{margin-top:18px;padding:24px}.split-photo{grid-template-columns:1fr}.split-photo img{height:260px}.feature-visual{min-height:360px;padding:28px}.feature-body{padding:24px} }
+  </style>
 </head>
-
 <body>
+  <main class="page">
+    <section class="hero"><div><h1>Partie 1 : Polynésie Française 🌺</h1><h2>De Tahiti aux lagons de Moorea, Rangiroa et Huahine</h2></div></section>
+    <section class="intro"><p>Après la première nuit près de l’aéroport de Paris, le grand voyage commence vraiment avec le vol vers <strong>Papeete</strong>. Le 4 octobre, l’arrivée à Tahiti se fait de nuit, dans la chaleur douce du Pacifique Sud.</p><p>Cette première partie du voyage est une parenthèse maritime et tropicale avant l’Australie et la Nouvelle-Zélande. L’itinéraire traverse trois visages très différents de la Polynésie française : <strong>Moorea</strong>, l’île montagneuse et spectaculaire ; <strong>Rangiroa</strong>, l’immense atoll ouvert sur l’océan ; puis <strong>Huahine</strong>, plus discrète, plus traditionnelle, souvent considérée comme l’une des îles les plus authentiques de l’archipel.</p><p>C’est une entrée progressive dans le Pacifique Sud : lagons turquoise, reliefs volcaniques, baleines, motus isolés, villages paisibles et longues lumières du soir sur l’océan.</p></section>
 
-<section class="hero">
-<div>
-<h1>Partie 1</h1>
-<p>Polynésie Française</p>
-</div>
-</section>
+    <article class="card"><img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tahiti%2C%20French%20Polynesia%20-%20Huahine%20%2848076269748%29.jpg" alt="Polynésie française"><div class="content"><div class="kicker">3 et 4 octobre</div><h3>Paris → Papeete</h3><p class="hotel">Hôtel : Sheraton Roissy puis Boutique Hôtel Kon Tiki Tahiti – 1 nuit</p><p>Le voyage débute à Paris CDG par une nuit de transition au Sheraton Roissy. Le lendemain, le vol Air Tahiti Nui quitte Paris pour rejoindre Tahiti, porte d’entrée mythique de la Polynésie française.</p><p>L’arrivée à Papeete est prévue à 21h30. La soirée reste volontairement simple : installation au Kon Tiki Tahiti, récupération du long vol et première respiration dans l’air chaud du Pacifique.</p><div class="facts"><div class="fact"><strong>Vol</strong>Paris → Papeete</div><div class="fact"><strong>Départ</strong>04/10 à 12h05</div><div class="fact"><strong>Arrivée</strong>04/10 à 21h30</div><div class="fact"><strong>Compagnie</strong>Air Tahiti Nui</div></div><div class="badges"><span class="badge">Guide : non</span><span class="badge">Journée de transit</span><span class="badge">Repos conseillé</span></div></div></article>
 
-<div class="container">
+    <article class="card"><div class="split-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/DSC00041%20French%20Polyn%C3%A9sia%20Moor%C3%A9a%20Island%20Lagoon%20Hauru%20%288076082336%29.jpg" alt="Lagon de Moorea"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Vue%20sur%20le%20lagon.jpg" alt="Lagon de Moorea et bungalows"></div><div class="content"><div class="kicker">5 octobre</div><h3>Papeete → Moorea</h3><p class="hotel">Hôtel : Manava Beach Resort – 4 nuits</p><p>Le ferry quitte Tahiti pour Moorea, et très vite les reliefs de l’île apparaissent au-dessus du lagon. Moorea donne immédiatement l’image rêvée de la Polynésie : montagnes volcaniques, baies profondes, végétation luxuriante et nuances de bleu presque irréelles.</p><p>Cette première journée reste légère. L’objectif est de s’installer, prendre le rythme des îles, puis commencer la découverte de la côte nord, entre Cook’s Bay, Opunohu Bay et le belvédère.</p><div class="facts"><div class="fact"><strong>Trajet</strong>Papeete → Moorea</div><div class="fact"><strong>Transport</strong>Ferry</div><div class="fact"><strong>Arrivée</strong>journée du 05/10</div><div class="fact"><strong>Ambiance</strong>première découverte</div></div><div class="activity"><h4>Après-midi – Premiers paysages de Moorea</h4><ul><li>Installation au Manava Beach Resort</li><li>Cook’s Bay</li><li>Opunohu Bay</li><li>Belvédère d’Opunohu si la météo est belle</li><li>Retour tranquille à l’hôtel avant le coucher du soleil</li></ul></div><div class="badges"><span class="badge">Guide : non</span><span class="badge">Privatif : non nécessaire</span><span class="badge">Get Your Guide : non</span></div></div></article>
 
-<div class="card">
+    <article class="card"><img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/DSC00042%20Polyn%C3%A9sia%20Moor%C3%A9a%20Island%20Motu%20Mo%C3%A9a%20Lagoon%20and%20transportation%20Boat%20%288076082190%29.jpg" alt="Motu et lagon de Moorea"><div class="content"><div class="kicker">6 octobre</div><h3>Le grand lagon de Moorea</h3><p class="hotel">Deuxième nuit au Manava Beach Resort</p><p>Cette journée constitue la première grande émotion polynésienne du voyage. Depuis la côte, une petite embarcation rejoint les eaux peu profondes du lagon, là où les couleurs passent du turquoise clair à l’émeraude puis au bleu profond.</p><p>Moorea se découvre ici depuis la mer : les montagnes restent en toile de fond tandis que le bateau glisse entre les motus, les bancs de sable et les jardins de corail. C’est la journée idéale pour les raies pastenagues, les requins de récif et le snorkeling.</p><div class="activity"><h4>Journée – Sortie lagon</h4><ul><li>Navigation dans le lagon</li><li>Snorkeling</li><li>Raies et requins pointes noires</li><li>Motus et déjeuner polynésien selon l’excursion choisie</li></ul></div><div class="badges"><span class="badge">Guide : OUI</span><span class="badge">Privatif : optionnel</span><span class="badge">Get Your Guide : OUI</span><span class="badge">Réservation recommandée</span></div></div></article>
 
-<h2>Programme en cours de construction</h2>
+    <article class="card"><img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/DSC00041%20French%20Polyn%C3%A9sia%20Moor%C3%A9a%20Island%20Lagoon%20Hauru%20%288076082336%29.jpg" alt="Moorea depuis le lagon"><div class="content"><div class="kicker">7 octobre</div><h3>Moorea côté terre</h3><p class="hotel">Troisième nuit au Manava Beach Resort</p><p>Après la journée lagon, Moorea se découvre côté montagne. La route circulaire permet de comprendre l’équilibre unique de l’île : un littoral lumineux, des vallées profondes, des plantations d’ananas et des sommets volcaniques qui semblent tomber dans la mer.</p><p>Cette journée se prête très bien à une découverte autonome, en voiture, sans contrainte d’horaire. Le rythme peut rester souple, avec plusieurs arrêts panoramiques et du temps pour profiter de la plage.</p><div class="activity"><h4>Journée – Tour panoramique de Moorea</h4><ul><li>Belvédère d’Opunohu</li><li>Magic Mountain si les conditions sont bonnes</li><li>Plage de Temae</li><li>Point de vue Toatea</li><li>Plantations d’ananas et routes intérieures</li></ul></div><div class="badges"><span class="badge">Guide : non</span><span class="badge">Location voiture recommandée</span><span class="badge">Get Your Guide : non</span><span class="badge">Journée adaptable</span></div></div></article>
 
-<p>
-Cette première partie du voyage sera consacrée à la découverte de la Polynésie Française.
-</p>
+    <article class="card"><div class="split-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Humpback%20whale%20%28Megaptera%20novaeangliae%29%20with%20calf%20Moorea.jpg" alt="Baleine à bosse et baleineau à Moorea"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Humpback%20whale%20%28Megaptera%20novaeangliae%29%20calf%20Moorea.jpg" alt="Baleineau à Moorea"></div><div class="content"><div class="kicker">8 octobre</div><h3>Les baleines de Moorea</h3><p class="hotel">Quatrième nuit au Manava Beach Resort</p><p>Début octobre fait partie des grands moments de la saison des baleines en Polynésie. Au large de Moorea, les baleines à bosse viennent mettre bas et accompagner leurs petits dans les eaux chaudes du Pacifique.</p><p>Cette sortie doit être choisie avec soin, auprès d’un opérateur sérieux et respectueux des distances d’approche. Elle peut devenir l’un des souvenirs les plus puissants du voyage, mais elle doit rester une rencontre, pas une poursuite.</p><div class="activity"><h4>Matin – Whale Watching</h4><ul><li>Sortie en mer au large de Moorea</li><li>Observation des baleines à bosse</li><li>Guide naturaliste recommandé</li><li>Après-midi libre au Manava : plage, repos, kayak ou paddle</li></ul></div><div class="badges"><span class="badge">Guide : OUI</span><span class="badge">Privatif : optionnel</span><span class="badge">Get Your Guide : OUI</span><span class="badge">Réservation indispensable</span></div></div></article>
 
-<p>
-Lagons turquoise, montagnes volcaniques, motus, navigation, culture polynésienne et hébergements d'exception seront au programme.
-</p>
+    <article class="card"><img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rangiroa%20%28French%20Polynesia%29%20banner%20Lagoon%20and%20beach.jpg" alt="Rangiroa, lagon et plage"><div class="content"><div class="kicker">9 octobre</div><h3>Moorea → Rangiroa</h3><p class="hotel">Hôtel : Kia Ora Resort & Spa – 3 nuits</p><p>Après les montagnes luxuriantes de Moorea, Rangiroa offre un contraste saisissant. Ici, aucun sommet ne domine l’horizon. L’île devient un mince ruban de corail posé sur l’océan, entourant l’un des plus grands lagons du monde.</p><p>Le voyage passe par Tahiti, puis le vol Air Tahiti rejoint Rangiroa en début d’après-midi. L’arrivée à 14h45 laisse le temps de s’installer au Kia Ora Resort & Spa et de découvrir la lumière très particulière de l’atoll.</p><div class="facts"><div class="fact"><strong>Ferry</strong>Moorea → Papeete</div><div class="fact"><strong>Vol</strong>Papeete → Rangiroa</div><div class="fact"><strong>Départ</strong>13h45</div><div class="fact"><strong>Arrivée</strong>14h45</div></div><div class="activity"><h4>Fin de journée – Première lumière sur l’atoll</h4><p>Balade douce autour du resort, plage, lagon et coucher de soleil. Rien de plus n’est nécessaire : Rangiroa impose immédiatement un rythme plus lent et plus maritime.</p></div><div class="badges"><span class="badge">Guide : non</span><span class="badge">Journée de transfert</span><span class="badge">Retour hôtel : naturel</span></div></div></article>
 
-<p>
-L'itinéraire détaillé sera ajouté prochainement.
-</p>
+    <section class="feature"><div class="feature-visual"><div><div class="kicker">10 octobre</div><h3>Le Blue Lagoon de Rangiroa</h3><h4>Une piscine naturelle au milieu du Pacifique</h4></div></div><div class="feature-body"><p>S’il ne fallait retenir qu’une seule excursion à Rangiroa, ce serait celle-ci. Le Blue Lagoon se mérite par une navigation à travers l’atoll, avant d’apparaître comme un lagon dans le lagon, une sorte de piscine naturelle géante protégée par des motus.</p><p>L’eau y est si claire que les requins, les raies et les poissons semblent flotter dans l’air. La journée alterne navigation, marche sur les motus, snorkeling et déjeuner polynésien. C’est probablement l’un des paysages les plus irréels de toute la première partie du voyage.</p><div class="facts"><div class="fact"><strong>Départ conseillé</strong>matin</div><div class="fact"><strong>Durée</strong>journée complète</div><div class="fact"><strong>Ambiance</strong>atoll sauvage</div><div class="fact"><strong>Retour</strong>avant soirée</div></div><div class="badges"><span class="badge">Guide : OUI</span><span class="badge">Privatif : non</span><span class="badge">Get Your Guide : OUI</span><span class="badge">Réservation indispensable</span></div></div></section>
 
-<a href="index.html" class="btn">
-← Retour à l'accueil
-</a>
+    <article class="card"><div class="split-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Blue-laggon-rangiroa.jpg" alt="Blue Lagoon Rangiroa"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/1%20Rangiroa%20Blue%20Lagoon%202.jpg" alt="Blue Lagoon Rangiroa"></div><div class="content"><div class="kicker">11 octobre</div><h3>Rangiroa, journée libre</h3><p class="hotel">Troisième nuit au Kia Ora Resort & Spa</p><p>Après l’intensité du Blue Lagoon, cette journée doit rester plus ouverte. Rangiroa n’est pas une île que l’on visite comme Moorea : elle se vit au rythme du lagon, des passes, du vent et de la lumière.</p><p>Deux options sont possibles : garder une vraie journée de repos au Kia Ora, ou prévoir une nouvelle sortie maritime si la météo est parfaite et si l’envie d’atoll domine encore.</p><div class="activity"><h4>Option douce – Repos au Kia Ora</h4><ul><li>Plage</li><li>Snorkeling depuis l’hôtel</li><li>Balade à Avatoru</li><li>Coucher de soleil sur le lagon</li></ul></div><div class="activity"><h4>Option active – Reef Island ou snorkeling</h4><p>À réserver seulement si l’on souhaite une deuxième grande journée lagon. Dans l’équilibre global du voyage, la journée libre reste précieuse.</p></div><div class="badges"><span class="badge">Guide : optionnel</span><span class="badge">Privatif : non nécessaire</span><span class="badge">Get Your Guide : à vérifier selon excursion</span><span class="badge">Journée adaptable</span></div></div></article>
 
-</div>
+    <article class="card"><img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Huahine%20-%20French%20Polynesia%20-%20panoramio.jpg" alt="Huahine"><div class="content"><div class="kicker">12 octobre</div><h3>Rangiroa → Huahine</h3><p class="hotel">Hôtel : Coco Bay Villa – 4 nuits</p><p>La journée marque un nouveau changement d’atmosphère. Après l’immensité horizontale de Rangiroa, Huahine ramène le voyage vers une Polynésie plus intime : des collines, des villages, des jardins, des routes calmes et une impression de temps suspendu.</p><p>Les vols Air Tahiti passent par Papeete. L’arrivée à Huahine à 16h10 permet une installation douce à Coco Bay Villa et une première soirée paisible, sans programme imposé.</p><div class="facts"><div class="fact"><strong>Vol 1</strong>Rangiroa → Papeete</div><div class="fact"><strong>Arrivée Tahiti</strong>09h45</div><div class="fact"><strong>Vol 2</strong>Papeete → Huahine</div><div class="fact"><strong>Arrivée Huahine</strong>16h10</div></div><div class="badges"><span class="badge">Guide : non</span><span class="badge">Journée de transfert</span><span class="badge">Soirée calme</span></div></div></article>
 
-</div>
+    <article class="card"><div class="split-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tahiti%2C%20French%20Polynesia%20-%20Huahine%20%2848076269748%29.jpg" alt="Huahine en Polynésie française"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Huahine%20-%20French%20Polynesia%20-%20panoramio.jpg" alt="Paysage de Huahine"></div><div class="content"><div class="kicker">13 octobre</div><h3>Huahine, l’île authentique</h3><p class="hotel">Deuxième nuit à Coco Bay Villa</p><p>Souvent éclipsée par Bora Bora ou Moorea, Huahine conserve pourtant une atmosphère unique. Les villages y paraissent plus paisibles, les routes moins fréquentées, les plages plus discrètes. On vient à Huahine moins pour cocher des activités que pour ressentir une Polynésie plus traditionnelle.</p><p>Cette journée est idéale pour découvrir l’intérieur de l’île, les villages, les anciens sites cérémoniels, les pièges à poissons et les points de vue sur le lagon.</p><div class="activity"><h4>Journée – Grand tour culturel de Huahine</h4><ul><li>Fare</li><li>Marae de Maeva</li><li>Pièges à poissons traditionnels</li><li>Villages et routes côtières</li><li>Points de vue sur le lagon</li></ul></div><div class="badges"><span class="badge">Guide : OUI recommandé</span><span class="badge">Privatif : optionnel</span><span class="badge">Get Your Guide : OUI ou opérateur local</span><span class="badge">Retour avant 18h : oui</span></div></div></article>
 
+    <article class="card"><img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tahiti%2C%20French%20Polynesia%20-%20Huahine%20%2848076269748%29.jpg" alt="Lagon de Huahine"><div class="content"><div class="kicker">14 octobre</div><h3>Le lagon de Huahine</h3><p class="hotel">Troisième nuit à Coco Bay Villa</p><p>Huahine possède une douceur particulière : moins spectaculaire que Moorea au premier regard, mais plus secrète, plus enveloppante. Son lagon se découvre lentement, entre motus, jardins de corail, eau peu profonde et plages tranquilles.</p><p>Après la journée culturelle, cette sortie en bateau permet de retrouver la mer et d’aborder Huahine depuis son plus beau décor : le lagon, les motus et les bleus du Pacifique.</p><div class="activity"><h4>Journée – Sortie lagon</h4><ul><li>Navigation autour de Huahine</li><li>Snorkeling</li><li>Motus</li><li>Jardin de corail</li><li>Déjeuner polynésien selon formule choisie</li></ul></div><div class="badges"><span class="badge">Guide : OUI</span><span class="badge">Privatif : optionnel</span><span class="badge">Get Your Guide : OUI ou opérateur local</span><span class="badge">Réservation recommandée</span></div></div></article>
+
+    <article class="card"><img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Huahine%20-%20French%20Polynesia%20-%20panoramio.jpg" alt="Huahine journée libre"><div class="content"><div class="kicker">15 octobre</div><h3>Huahine, respiration polynésienne</h3><p class="hotel">Quatrième nuit à Coco Bay Villa</p><p>Cette journée libre est importante dans l’équilibre du voyage. Après plusieurs îles, plusieurs vols et deux grandes sorties lagon, il faut garder du temps pour ne rien forcer.</p><p>Huahine se prête parfaitement à cette respiration : un bain, une balade, un déjeuner simple, une sortie en kayak ou quelques heures à regarder la lumière changer sur le lagon.</p><div class="activity"><h4>Journée libre</h4><ul><li>Plage</li><li>Kayak ou paddle</li><li>Vélo ou petite balade</li><li>Repos à Coco Bay Villa</li><li>Dernier coucher de soleil à Huahine</li></ul></div><div class="badges"><span class="badge">Guide : non</span><span class="badge">Get Your Guide : non</span><span class="badge">Journée libre</span><span class="badge">Rythme doux</span></div></div></article>
+
+    <article class="card"><img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bora-Bora%20Lagoon%20-%20French%20Polynesia.jpg" alt="Lagon de Polynésie française"><div class="content"><div class="kicker">16 octobre</div><h3>Huahine → Tahiti</h3><p class="hotel">Hôtel : Boutique Hôtel Kon Tiki Tahiti – 1 nuit</p><p>Le vol retour vers Tahiti n’est prévu qu’en fin de journée. C’est une belle chance : la matinée et le début d’après-midi peuvent rester entièrement consacrés à Huahine, sans départ précipité.</p><p>Cette dernière journée polynésienne garde donc le bon rythme : plage, repos, derniers regards vers le lagon, puis transfert vers l’aéroport pour le vol de 18h20 vers Papeete.</p><div class="facts"><div class="fact"><strong>Matinée</strong>libre à Huahine</div><div class="fact"><strong>Vol</strong>Huahine → Papeete</div><div class="fact"><strong>Départ</strong>18h20</div><div class="fact"><strong>Arrivée</strong>19h00</div></div><div class="badges"><span class="badge">Guide : non</span><span class="badge">Journée douce</span><span class="badge">Nuit à Tahiti</span></div></div></article>
+
+    <article class="card"><div class="split-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Auckland%20CBD%20skyline%20and%20harbour.jpg" alt="Auckland skyline and harbour"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Auckland%20Harbour%20from%20Viaduct%20Bridge.jpg" alt="Auckland Harbour"></div><div class="content"><div class="kicker">17 et 18 octobre</div><h3>Tahiti → Auckland</h3><p class="hotel">Hôtel : M Social Auckland – 1 nuit</p><p>Le 17 octobre, le vol quitte Papeete à 08h25. Le passage de la ligne de changement de date fait basculer le voyage au 18 octobre, avec une arrivée à Auckland à 13h10.</p><p>Auckland joue ici le rôle de transition. Après les lagons polynésiens, les motus et les îles tropicales, la ville des voiliers marque l’entrée progressive dans la deuxième partie du voyage : l’Australie, Melbourne puis Sydney.</p><div class="facts"><div class="fact"><strong>Vol</strong>Papeete → Auckland</div><div class="fact"><strong>Départ</strong>17/10 à 08h25</div><div class="fact"><strong>Arrivée</strong>18/10 à 13h10</div><div class="fact"><strong>Hôtel</strong>M Social Auckland</div></div><div class="activity"><h4>Après-midi – Auckland portuaire</h4><ul><li>Viaduct Harbour</li><li>Wynyard Quarter</li><li>Marinas</li><li>Dîner face au port</li></ul></div><div class="badges"><span class="badge">Guide : non</span><span class="badge">Privatif : non nécessaire</span><span class="badge">Get Your Guide : non</span><span class="badge">Transition vers l’Australie</span></div></div></article>
+
+    <section class="finale"><h3>Les grands moments de la Polynésie</h3><ul><li><strong>Moorea</strong>, première grande vision polynésienne entre montagnes et lagon</li><li><strong>Le lagon de Moorea</strong>, avec raies, requins de récif, motus et snorkeling</li><li><strong>Les baleines de Moorea</strong>, moment fort de la saison d’octobre</li><li><strong>Rangiroa</strong>, l’expérience unique d’un immense atoll corallien</li><li><strong>Le Blue Lagoon</strong>, probablement l’un des paysages les plus irréels du voyage</li><li><strong>Huahine</strong>, l’île authentique, plus calme et plus traditionnelle</li></ul><p>Cette première partie du voyage offre une entrée idéale dans le Pacifique Sud. Moorea, Rangiroa et Huahine dévoilent trois visages complémentaires de la Polynésie française : l’île montagneuse, l’atoll corallien et l’île traditionnelle.</p><p>Après cette parenthèse de lagons, de lumière et de mer, le voyage se poursuit vers Auckland puis l’Australie, avec une transition progressive vers un autre monde du Pacifique.</p></section>
+    <div class="home-link-wrap"><a class="home-link" href="index.html">← Retour à l'accueil</a></div>
+    <p class="credits">Photos : Wikimedia Commons. Les fichiers utilisés sont référencés via leurs noms exacts sur Commons. Pour une publication définitive, prévoir une section “Crédits photos” avec auteurs et licences si le site est partagé publiquement.</p>
+  </main>
 </body>
 </html>
