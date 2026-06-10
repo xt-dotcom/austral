@@ -5,29 +5,610 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Partie 2 : Australie</title>
   <style>
-    :root { --paper:#fffaf2; --ink:#1f2a2e; --muted:#6d6b66; --accent:#1d6f78; --accent2:#b8753b; --shadow:0 24px 60px rgba(31,42,46,.18); --radius:30px; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:Georgia,"Times New Roman",serif; color:var(--ink); background:radial-gradient(circle at top left, rgba(29,111,120,.18), transparent 34rem), radial-gradient(circle at top right, rgba(184,117,59,.16), transparent 30rem), linear-gradient(180deg,#f6f0e8,#efe7dc); line-height:1.65; }
-    .page { max-width:1000px; min-height:100vh; margin:0 auto; padding:28px 18px 70px; display:flex; align-items:center; }
-    .panel { width:100%; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); background:var(--paper); }
-    .visual { min-height:440px; background:linear-gradient(rgba(0,0,0,.20), rgba(0,0,0,.64)), url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Sydney_Opera_House_and_Harbour_Bridge_Dusk_(2)_2019-06-21.jpg") center/cover no-repeat; color:white; display:flex; align-items:flex-end; padding:44px; }
-    .visual h1 { font-size:clamp(2.2rem,6vw,5rem); line-height:1; letter-spacing:-.055em; margin:0; }
-    .body { padding:34px; font-size:1.15rem; }
-    .kicker { color:var(--accent2); text-transform:uppercase; letter-spacing:.16em; font-size:.78rem; font-weight:700; font-family:Arial,sans-serif; margin-bottom:10px; }
-    .home-button { display:inline-block; margin-top:18px; padding:13px 20px; border-radius:999px; background:var(--accent); color:white; text-decoration:none; font-family:Arial,sans-serif; font-weight:700; }
-    @media(max-width:700px) { .page { padding:14px 10px 48px; } .visual { min-height:340px; padding:28px; } .body { padding:24px; } }
+    :root {
+      --bg: #f4efe7;
+      --paper: #fffaf2;
+      --ink: #1f2a2e;
+      --muted: #6d6b66;
+      --accent: #1d6f78;
+      --accent2: #b8753b;
+      --line: rgba(31,42,46,.13);
+      --shadow: 0 22px 52px rgba(31,42,46,.14);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(29,111,120,.18), transparent 32rem),
+        radial-gradient(circle at top right, rgba(184,117,59,.16), transparent 28rem),
+        linear-gradient(180deg, #f6f0e8, #efe7dc);
+      line-height: 1.65;
+    }
+
+    .page { max-width: 1120px; margin: 0 auto; padding: 28px 18px 80px; }
+
+    .hero {
+      min-height: 78vh;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow);
+      background:
+        linear-gradient(rgba(0,0,0,.22), rgba(0,0,0,.60)),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Sydney%20Opera%20House%20and%20Harbour%20Bridge%20Dusk%20%283%29%202019-06-21.jpg") center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      padding: 48px;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.3rem, 6vw, 5.4rem);
+      line-height: 1;
+      margin: 0 0 14px;
+      letter-spacing: -0.055em;
+      max-width: 920px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 2.3vw, 2rem);
+      font-weight: 400;
+      margin: 0;
+      max-width: 780px;
+    }
+
+    .intro {
+      background: rgba(255,250,242,.9);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      margin: -34px auto 42px;
+      position: relative;
+      z-index: 2;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      max-width: 960px;
+      font-size: 1.15rem;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin: 28px 0 46px;
+    }
+
+    .photo { width: 100%; height: 430px; object-fit: cover; display: block; background: #ddd; }
+    .content { padding: 34px; }
+
+    .kicker {
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      font-size: .78rem;
+      font-weight: 700;
+      font-family: Arial, sans-serif;
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      font-size: clamp(1.8rem, 3.2vw, 3rem);
+      line-height: 1.08;
+      margin: 0 0 10px;
+      letter-spacing: -0.04em;
+    }
+
+    h4 { font-size: 1.35rem; margin: 28px 0 8px; color: var(--accent); }
+    .hotel { color: var(--muted); font-style: italic; margin-bottom: 18px; }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 12px;
+      margin: 24px 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .fact {
+      background: rgba(29,111,120,.08);
+      border: 1px solid rgba(29,111,120,.14);
+      border-radius: 18px;
+      padding: 14px 16px;
+      font-size: .96rem;
+    }
+
+    .fact strong {
+      display: block;
+      color: var(--accent);
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      margin-bottom: 2px;
+    }
+
+    .activity { border-left: 4px solid var(--accent2); padding-left: 18px; margin-top: 24px; }
+
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; font-family: Arial, sans-serif; }
+    .badge {
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(184,117,59,.12);
+      color: #714118;
+      font-size: .86rem;
+      font-weight: 700;
+    }
+
+    .split-photo { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+    .split-photo img { width: 100%; height: 340px; object-fit: cover; display: block; background: #ddd; }
+
+    .feature {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin: 54px 0;
+      background: var(--ink);
+      color: white;
+    }
+
+    .feature-visual {
+      min-height: 480px;
+      background:
+        linear-gradient(rgba(0,0,0,.22), rgba(0,0,0,.62)),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/Perth%20skyline%20from%20the%20Swan%20River%2C%20August%202024.jpg") center/cover no-repeat;
+      padding: 44px;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .feature-body { padding: 34px; }
+    .feature .facts .fact { background: rgba(255,255,255,.13); border-color: rgba(255,255,255,.20); color: white; }
+    .feature .fact strong { color: #f7d6a8; }
+
+    .finale {
+      background: var(--ink);
+      color: white;
+      border-radius: var(--radius);
+      padding: 38px;
+      box-shadow: var(--shadow);
+      margin-top: 54px;
+    }
+
+    .finale h3 { color: #f7d6a8; }
+
+    .home-link-wrap { text-align: center; margin: 44px 0 10px; }
+    .home-link {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-weight: 700;
+      box-shadow: 0 12px 30px rgba(31,42,46,.18);
+    }
+
+    .credits { margin-top: 24px; color: var(--muted); font-size: .88rem; font-family: Arial, sans-serif; }
+    ul { padding-left: 1.2rem; }
+    li { margin: .35rem 0; }
+
+    @media (max-width: 700px) {
+      .page { padding: 14px 10px 48px; }
+      .hero { padding: 28px; min-height: 62vh; }
+      .photo { height: 285px; }
+      .content { padding: 24px; }
+      .intro { margin-top: 18px; padding: 24px; }
+      .split-photo { grid-template-columns: 1fr; }
+      .split-photo img { height: 260px; }
+      .feature-visual { min-height: 360px; padding: 28px; }
+      .feature-body { padding: 24px; }
+    }
   </style>
 </head>
+
 <body>
   <main class="page">
-    <section class="panel">
-      <div class="visual"><div><div class="kicker">Partie 2</div><h1>Australie</h1></div></div>
-      <div class="body">
-        <p>Cette page est en construction.</p>
-        <p>Le contenu détaillé sera ajouté dans une prochaine étape.</p>
-        <a class="home-button" href="index.html">← Retour à l’accueil</a>
+
+    <section class="hero">
+      <div>
+        <h1>Partie 2 : Australie 🇦🇺</h1>
+        <h2>De Melbourne à Perth, puis Sydney avant la Nouvelle-Zélande</h2>
       </div>
     </section>
+
+    <section class="intro">
+      <p>
+        Après la Polynésie, le voyage change d’échelle. L’Australie marque l’entrée dans un autre Pacifique : plus urbain,
+        plus vaste, plus contrasté. En dix jours, l’itinéraire traverse trois visages très différents du pays.
+      </p>
+      <p>
+        <strong>Melbourne</strong> apporte l’élégance culturelle, les ruelles, les cafés et la possibilité d’une grande échappée vers la Great Ocean Road.
+        <strong>Perth</strong>, plus isolée, ouvre sur l’océan Indien, les plages claires et Rottnest Island. Enfin, <strong>Sydney</strong>
+        offre la grande image australienne : l’Opéra, le Harbour Bridge, les baies, les ferries et les Blue Mountains.
+      </p>
+    </section>
+
+    <article class="card">
+      <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/The%20Yarra%20River.jpg" alt="Melbourne et la Yarra River">
+      <div class="content">
+        <div class="kicker">19 octobre</div>
+        <h3>Auckland → Melbourne</h3>
+        <p class="hotel">Hôtel : Quay West Suites – 3 nuits</p>
+        <div class="facts">
+          <div class="fact"><strong>Vol</strong>Auckland → Melbourne</div>
+          <div class="fact"><strong>Départ</strong>11h45</div>
+          <div class="fact"><strong>Arrivée</strong>13h45</div>
+          <div class="fact"><strong>Compagnie</strong>Air New Zealand</div>
+        </div>
+        <p>
+          Après les lagons polynésiens et la courte transition par Auckland, Melbourne offre un retour progressif à la ville.
+          L’arrivée en début d’après-midi permet une installation confortable avant une première promenade le long de la Yarra River.
+        </p>
+        <div class="activity">
+          <h4>Fin d’après-midi – Southbank et Yarra River</h4>
+          <ul>
+            <li>Promenade le long de Southbank</li>
+            <li>Federation Square</li>
+            <li>Flinders Street Station</li>
+            <li>Dîner tranquille près de la rivière</li>
+          </ul>
+        </div>
+        <div class="badges">
+          <span class="badge">Guide : non</span>
+          <span class="badge">Privatif : non nécessaire</span>
+          <span class="badge">Get Your Guide : non</span>
+          <span class="badge">Journée de transition</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="split-photo">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Melbourne%20Skyline.jpg" alt="Melbourne skyline">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Melbourne%20skyline%20at%20night.jpg" alt="Melbourne de nuit">
+      </div>
+      <div class="content">
+        <div class="kicker">20 octobre</div>
+        <h3>Melbourne</h3>
+        <p class="hotel">Quay West Suites</p>
+        <p>
+          Melbourne se découvre moins comme une ville de monuments que comme une ville d’atmosphère.
+          Ses ruelles couvertes de street art, ses cafés, ses tramways et ses quartiers élégants composent une étape urbaine agréable,
+          très différente des paysages polynésiens traversés les jours précédents.
+        </p>
+        <div class="activity">
+          <h4>Journée – Melbourne à pied</h4>
+          <ul>
+            <li>Laneways et arcades du centre-ville</li>
+            <li>Queen Victoria Market</li>
+            <li>Royal Botanic Gardens</li>
+            <li>Promenade vers Southbank et les quais</li>
+          </ul>
+        </div>
+        <div class="badges">
+          <span class="badge">Guide : non</span>
+          <span class="badge">Privatif : non nécessaire</span>
+          <span class="badge">Get Your Guide : optionnel</span>
+          <span class="badge">Retour avant 18h : oui</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Twelve%20Apostles%20Victoria%20Australia.jpg" alt="Twelve Apostles sur la Great Ocean Road">
+      <div class="content">
+        <div class="kicker">21 octobre</div>
+        <h3>Great Ocean Road</h3>
+        <p class="hotel">Départ depuis Melbourne</p>
+        <p>
+          Cette journée est la grande respiration côtière de l’étape victorienne. La route longe l’océan Austral,
+          traverse des forêts humides, puis atteint les falaises spectaculaires des Twelve Apostles.
+        </p>
+        <p>
+          C’est une journée longue, mais elle offre l’un des paysages les plus emblématiques du sud de l’Australie.
+          Pour limiter la fatigue et éviter une conduite importante, une excursion guidée au départ de Melbourne est le meilleur choix.
+        </p>
+        <div class="facts">
+          <div class="fact"><strong>Durée</strong>journée complète</div>
+          <div class="fact"><strong>Départ conseillé</strong>07h00 – 08h00</div>
+          <div class="fact"><strong>Retour</strong>souvent après 19h00</div>
+        </div>
+        <div class="activity">
+          <h4>Excursion guidée</h4>
+          <ul>
+            <li>Great Ocean Road</li>
+            <li>Forêts du Great Otway National Park</li>
+            <li>Twelve Apostles</li>
+            <li>Loch Ard Gorge selon l’itinéraire choisi</li>
+          </ul>
+        </div>
+        <div class="badges">
+          <span class="badge">Guide : OUI</span>
+          <span class="badge">Privatif : optionnel</span>
+          <span class="badge">Get Your Guide : OUI</span>
+          <span class="badge">Réservation recommandée</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Perth%20skyline%20from%20the%20Swan%20River%2C%20August%202024.jpg" alt="Perth skyline depuis la Swan River">
+      <div class="content">
+        <div class="kicker">22 octobre</div>
+        <h3>Melbourne → Perth</h3>
+        <p class="hotel">Hôtel : InterContinental City Centre – 4 nuits</p>
+        <div class="facts">
+          <div class="fact"><strong>Vol</strong>Melbourne → Perth</div>
+          <div class="fact"><strong>Départ</strong>14h45</div>
+          <div class="fact"><strong>Arrivée</strong>16h10</div>
+          <div class="fact"><strong>Compagnie</strong>Virgin Australia</div>
+        </div>
+        <p>
+          En quittant Melbourne pour Perth, le voyage traverse presque tout un continent. L’Australie occidentale donne immédiatement
+          une autre impression : plus lumineuse, plus horizontale, plus maritime, tournée vers l’océan Indien.
+        </p>
+        <div class="activity">
+          <h4>Soirée – Première découverte de Perth</h4>
+          <ul>
+            <li>Installation à l’hôtel</li>
+            <li>Promenade dans le centre</li>
+            <li>Elizabeth Quay</li>
+            <li>Dîner calme après le vol</li>
+          </ul>
+        </div>
+        <div class="badges">
+          <span class="badge">Guide : non</span>
+          <span class="badge">Journée de transfert</span>
+        </div>
+      </div>
+    </article>
+
+    <section class="feature">
+      <div class="feature-visual">
+        <div>
+          <div class="kicker">23 octobre</div>
+          <h3>Perth et la Swan River</h3>
+          <h4>Une ville lumineuse au bord de l’océan Indien</h4>
+        </div>
+      </div>
+      <div class="feature-body">
+        <p>
+          Perth est l’une des grandes surprises possibles de ce voyage. Isolée sur la côte ouest, éloignée des itinéraires australiens
+          classiques, elle offre une atmosphère détendue, de grands espaces, un centre moderne et une relation permanente avec l’eau.
+        </p>
+        <div class="facts">
+          <div class="fact"><strong>Matin</strong>Kings Park</div>
+          <div class="fact"><strong>Après-midi</strong>Elizabeth Quay et Swan River</div>
+          <div class="fact"><strong>Soirée</strong>Northbridge ou bord de rivière</div>
+        </div>
+        <p>
+          La journée peut rester volontairement légère : panorama depuis Kings Park, balade sur les quais, puis retour à l’hôtel sans fatigue.
+        </p>
+        <div class="badges">
+          <span class="badge">Guide : non</span>
+          <span class="badge">Privatif : non nécessaire</span>
+          <span class="badge">Get Your Guide : non</span>
+          <span class="badge">Retour avant 18h : oui</span>
+        </div>
+      </div>
+    </section>
+
+    <article class="card">
+      <div class="split-photo">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Rottnest%20Island%20Western%20Australia%20-%20panoramio.jpg" alt="Rottnest Island">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Quokka%20Rottnest.jpg" alt="Quokka à Rottnest Island">
+      </div>
+      <div class="content">
+        <div class="kicker">24 octobre</div>
+        <h3>Rottnest Island</h3>
+        <p class="hotel">Départ depuis Perth ou Fremantle</p>
+        <p>
+          Rottnest Island est l’une des plus belles excursions possibles depuis Perth. L’île est presque sans voitures,
+          bordée de criques turquoise, de plages claires et connue pour ses quokkas, petits marsupiaux devenus emblématiques de l’Australie occidentale.
+        </p>
+        <div class="activity">
+          <h4>Journée complète – Ferry et vélo</h4>
+          <ul>
+            <li>Traversée en ferry</li>
+            <li>Découverte de l’île à vélo ou en bus panoramique</li>
+            <li>Plages et criques</li>
+            <li>Observation des quokkas</li>
+          </ul>
+        </div>
+        <div class="badges">
+          <span class="badge">Guide : optionnel</span>
+          <span class="badge">Privatif : non nécessaire</span>
+          <span class="badge">Get Your Guide : OUI</span>
+          <span class="badge">Réservation recommandée</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="split-photo">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Cottesloe%20Beach%2C%20Western%20Australia.jpg" alt="Cottesloe Beach">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Fremantle%20Harbour%20from%20the%20air.jpg" alt="Fremantle Harbour">
+      </div>
+      <div class="content">
+        <div class="kicker">25 octobre</div>
+        <h3>Fremantle et Cottesloe</h3>
+        <p class="hotel">Dernière journée complète à Perth</p>
+        <p>
+          Après Rottnest Island, cette journée permet de rester au rythme de l’Australie occidentale sans ajouter une excursion trop lourde.
+          Fremantle apporte une ambiance portuaire, historique et vivante, tandis que Cottesloe offre l’une des plages les plus célèbres de Perth.
+        </p>
+        <div class="activity">
+          <h4>Journée douce</h4>
+          <ul>
+            <li>Fremantle Markets si ouverts</li>
+            <li>Balade dans le vieux Fremantle</li>
+            <li>Cottesloe Beach</li>
+            <li>Coucher de soleil sur l’océan Indien</li>
+          </ul>
+        </div>
+        <div class="badges">
+          <span class="badge">Guide : non</span>
+          <span class="badge">Privatif : non nécessaire</span>
+          <span class="badge">Get Your Guide : non</span>
+          <span class="badge">Journée légère</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sydney%20Opera%20House%20and%20Harbour%20Bridge%20Dusk%20%283%29%202019-06-21.jpg" alt="Sydney Harbour Bridge et Opera House">
+      <div class="content">
+        <div class="kicker">26 octobre</div>
+        <h3>Perth → Sydney</h3>
+        <p class="hotel">Hôtel : Vibe Hotel Darling Harbour – 3 nuits</p>
+        <div class="facts">
+          <div class="fact"><strong>Vol</strong>Perth → Sydney</div>
+          <div class="fact"><strong>Départ</strong>09h05</div>
+          <div class="fact"><strong>Arrivée</strong>16h20</div>
+          <div class="fact"><strong>Compagnie</strong>Virgin Australia</div>
+        </div>
+        <p>
+          Le vol Perth – Sydney est presque un voyage dans le voyage : il traverse l’Australie d’ouest en est et fait basculer l’itinéraire
+          vers l’image la plus iconique du pays.
+        </p>
+        <div class="activity">
+          <h4>Soirée – Darling Harbour</h4>
+          <p>
+            Installation à l’hôtel, puis première promenade facile autour de Darling Harbour. L’idée est de ne pas charger cette journée,
+            déjà longue avec le vol et le changement d’ambiance.
+          </p>
+        </div>
+        <div class="badges">
+          <span class="badge">Guide : non</span>
+          <span class="badge">Journée de transfert</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="split-photo">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sydney%20Opera%20House%20and%20Harbour%20Bridge%20Dusk%202019-06-21.jpg" alt="Sydney Opera House">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Sydney%20Harbour%20Bridge%20and%20Opera%20House%20at%20dusk.jpg" alt="Sydney Harbour">
+      </div>
+      <div class="content">
+        <div class="kicker">27 octobre</div>
+        <h3>Sydney Harbour</h3>
+        <p class="hotel">Vibe Hotel Darling Harbour</p>
+        <p>
+          Sydney se découvre d’abord par son port. C’est ici que la ville devient immédiatement spectaculaire : les ferries traversent la baie,
+          l’Opéra surgit comme une voile minérale et le Harbour Bridge donne à l’ensemble une dimension presque théâtrale.
+        </p>
+        <div class="activity">
+          <h4>Journée – Opéra, Circular Quay et ferry</h4>
+          <ul>
+            <li>Circular Quay</li>
+            <li>Visite guidée de l’Opéra de Sydney</li>
+            <li>The Rocks</li>
+            <li>Ferry vers Manly ou balade vers Mrs Macquarie’s Chair</li>
+          </ul>
+        </div>
+        <div class="badges">
+          <span class="badge">Guide : OUI pour l’Opéra</span>
+          <span class="badge">Privatif : non nécessaire</span>
+          <span class="badge">Get Your Guide : OUI</span>
+          <span class="badge">Retour avant 18h : oui</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Three%20Sisters%20Australia.jpg" alt="Three Sisters dans les Blue Mountains">
+      <div class="content">
+        <div class="kicker">28 octobre</div>
+        <h3>Blue Mountains</h3>
+        <p class="hotel">Départ depuis Sydney</p>
+        <p>
+          Dernière grande excursion australienne avant la Nouvelle-Zélande, les Blue Mountains offrent une rupture complète avec Sydney :
+          plateaux d’eucalyptus, falaises bleutées, vallées profondes et points de vue immenses.
+        </p>
+        <div class="facts">
+          <div class="fact"><strong>Durée</strong>journée complète</div>
+          <div class="fact"><strong>Départ conseillé</strong>07h30 – 08h00</div>
+          <div class="fact"><strong>Retour</strong>fin d’après-midi ou soirée</div>
+        </div>
+        <div class="activity">
+          <h4>Excursion guidée</h4>
+          <ul>
+            <li>Echo Point et les Three Sisters</li>
+            <li>Points de vue sur les vallées</li>
+            <li>Balade nature ou Scenic World selon formule</li>
+            <li>Retour à Sydney</li>
+          </ul>
+        </div>
+        <div class="badges">
+          <span class="badge">Guide : OUI</span>
+          <span class="badge">Privatif : optionnel</span>
+          <span class="badge">Get Your Guide : OUI</span>
+          <span class="badge">Réservation recommandée</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lake%20Wakatipu%2C%20New%20Zealand%2010.jpg" alt="Lake Wakatipu à Queenstown">
+      <div class="content">
+        <div class="kicker">29 octobre</div>
+        <h3>Sydney → Queenstown</h3>
+        <p class="hotel">Transition vers la Partie 3 – Nouvelle-Zélande Sud</p>
+        <div class="facts">
+          <div class="fact"><strong>Vol</strong>Sydney → Queenstown</div>
+          <div class="fact"><strong>Départ</strong>09h00</div>
+          <div class="fact"><strong>Arrivée</strong>14h05</div>
+          <div class="fact"><strong>Compagnie</strong>Air New Zealand</div>
+        </div>
+        <p>
+          Après Sydney, l’arrivée à Queenstown ouvre brutalement un nouveau chapitre. Les plages, ports et grandes villes australiennes
+          laissent place aux Alpes du Sud, aux lacs glaciaires et aux routes de montagne.
+        </p>
+        <p>
+          La Partie 3 peut commencer : la Nouvelle-Zélande du Sud et ses paysages les plus spectaculaires.
+        </p>
+        <div class="badges">
+          <span class="badge">Guide : non</span>
+          <span class="badge">Journée de transition</span>
+          <span class="badge">Suite : Nouvelle-Zélande Sud</span>
+        </div>
+      </div>
+    </article>
+
+    <section class="finale">
+      <h3>Les grands moments de l’Australie</h3>
+      <ul>
+        <li><strong>Melbourne</strong>, entre ruelles, cafés, Yarra River et ambiance culturelle</li>
+        <li><strong>Great Ocean Road</strong>, l’une des plus belles routes côtières du pays</li>
+        <li><strong>Perth</strong>, ville lumineuse tournée vers l’océan Indien</li>
+        <li><strong>Rottnest Island</strong>, plages turquoise et quokkas</li>
+        <li><strong>Sydney Harbour</strong>, Opéra, Harbour Bridge et ferries</li>
+        <li><strong>Blue Mountains</strong>, grande échappée nature avant la Nouvelle-Zélande</li>
+      </ul>
+      <p>
+        Cette deuxième partie joue parfaitement son rôle dans le grand voyage : elle relie la douceur polynésienne à l’intensité néo-zélandaise.
+        Melbourne, Perth et Sydney offrent trois Australie différentes : culturelle, occidentale et iconique.
+      </p>
+    </section>
+
+    <p class="credits">
+      Photos : Wikimedia Commons. Les fichiers utilisés sont référencés via leurs noms exacts sur Commons.
+      Pour une publication définitive, prévoir une section “Crédits photos” avec auteurs et licences si le site est partagé publiquement.
+    </p>
+
+    <div class="home-link-wrap">
+      <a class="home-link" href="index.html">← Retour à l'accueil</a>
+    </div>
+
   </main>
 </body>
 </html>
