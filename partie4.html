@@ -161,6 +161,30 @@
       margin-top: 24px;
     }
 
+
+    .logistics {
+      margin: 24px 0;
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(29,111,120,.08);
+      border: 1px solid rgba(29,111,120,.16);
+      font-family: Arial, sans-serif;
+    }
+
+    .logistics h4 {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+    }
+
+    .logistics-note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.55;
+    }
+
     .badges {
       display: flex;
       flex-wrap: wrap;
@@ -234,28 +258,6 @@
     ul { padding-left: 1.2rem; }
     li { margin: .35rem 0; }
 
-
-    .home-return {
-      text-align: center;
-      margin: 50px 0 10px;
-    }
-
-    .home-return a {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: white;
-      text-decoration: none;
-      font-family: Arial, sans-serif;
-      font-weight: 700;
-      box-shadow: 0 14px 34px rgba(31,42,46,.18);
-    }
-
-    .home-return a:hover {
-      background: #155760;
-    }
-
     @media (max-width: 700px) {
       .page { padding: 14px 10px 48px; }
       .hero { padding: 28px; min-height: 62vh; }
@@ -304,6 +306,7 @@
           Wellington possède une ambiance très différente du reste du voyage : ville côtière élégante,
           cafés réputés, culture omniprésente et magnifique baie naturelle.
         </p>
+        <div class="logistics"><h4>Logistique vol / transfert</h4><div class="facts"><div class="fact"><strong>Arrivée ferry</strong>vers 12h30</div><div class="fact"><strong>Transfert hôtel</strong>environ 10 – 15 min</div><div class="fact"><strong>Arrivée InterContinental</strong>vers 13h15 – 13h45</div><div class="fact"><strong>Après-midi</strong>découverte à pied</div></div><p class="logistics-note">Cette première journée sur l’île du Nord reste volontairement légère après la traversée du détroit de Cook.</p></div>
         <div class="activity">
           <h4>Après-midi libre</h4>
           <ul>
@@ -496,6 +499,7 @@
           <div class="fact"><strong>Départ conseillé</strong>10h00</div>
           <div class="fact"><strong>Arrivée prévue</strong>13h00</div>
         </div>
+        <div class="logistics"><h4>Logistique vol / transfert</h4><div class="facts"><div class="fact"><strong>Départ Pullman</strong>10h00</div><div class="fact"><strong>Pause possible</strong>Matamata ou route de Waikato</div><div class="fact"><strong>Arrivée M Social</strong>vers 13h00 – 13h30</div><div class="fact"><strong>Temps libre</strong>après-midi portuaire</div></div><p class="logistics-note">C’est la dernière grande route du voyage. Le départ à 10h00 garde une matinée confortable à Rotorua tout en laissant une vraie fin de journée à Auckland.</p></div>
         <p>
           La dernière étape du voyage nous conduit à Auckland. Surnommée “City of Sails”,
           la ville est construite entre deux ports naturels et possède une forte culture maritime.
@@ -534,6 +538,25 @@
       </div>
     </section>
 
+
+    <article class="card">
+      <img class="photo" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Auckland%20Harbour%20Bridge%20Sunset.jpg" alt="Auckland Harbour Bridge au coucher du soleil">
+      <div class="content">
+        <div class="kicker">Retour international</div>
+        <h3>Auckland → Papeete</h3>
+        <p class="hotel">Dernier transit du voyage vers la Polynésie</p>
+        <p>
+          Le retour vers Papeete referme la boucle du Pacifique. Comme il s’agit d’un vol international, la règle pratique reste simple : prévoir une arrivée à l’aéroport environ trois heures avant le décollage, puis ajouter le temps de route depuis le M Social Auckland.
+        </p>
+        <div class="logistics"><h4>Logistique vol retour</h4><div class="facts"><div class="fact"><strong>Départ hôtel</strong>heure du vol − 3h45</div><div class="fact"><strong>Trajet hôtel → AKL</strong>environ 35 – 45 min</div><div class="fact"><strong>Marge aéroport</strong>environ 3h avant le vol</div><div class="fact"><strong>À compléter</strong>horaire exact du billet</div></div><p class="logistics-note">L’horaire exact du vol Auckland → Papeete n’apparaît pas dans la page actuelle. Dès qu’il est confirmé, il suffit de remplacer cette règle par une heure précise de départ du M Social.</p></div>
+        <div class="badges">
+          <span class="badge">Guide : non</span>
+          <span class="badge">Vol international</span>
+          <span class="badge">Marge recommandée : 3h</span>
+        </div>
+      </div>
+    </article>
+
     <section class="finale">
       <h3>Les grands moments de l’île du Nord</h3>
       <ul>
@@ -558,11 +581,6 @@
       Photos : Wikimedia Commons. Les fichiers utilisés sont référencés via leurs noms exacts sur Commons.
       Pour une publication définitive, prévoir une section “Crédits photos” avec auteurs et licences si le site est partagé publiquement.
     </p>
-
-
-    <div class="home-return">
-      <a href="index.html">← Retour à l’accueil</a>
-    </div>
 
   </main>
 </body>
