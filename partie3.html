@@ -161,6 +161,30 @@
       margin-top: 24px;
     }
 
+
+    .logistics {
+      margin: 24px 0;
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(29,111,120,.08);
+      border: 1px solid rgba(29,111,120,.16);
+      font-family: Arial, sans-serif;
+    }
+
+    .logistics h4 {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+    }
+
+    .logistics-note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.55;
+    }
+
     .badges {
       display: flex;
       flex-wrap: wrap;
@@ -243,28 +267,6 @@
     ul { padding-left: 1.2rem; }
     li { margin: .35rem 0; }
 
-
-    .home-return {
-      text-align: center;
-      margin: 50px 0 10px;
-    }
-
-    .home-return a {
-      display: inline-block;
-      padding: 14px 22px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: white;
-      text-decoration: none;
-      font-family: Arial, sans-serif;
-      font-weight: 700;
-      box-shadow: 0 14px 34px rgba(31,42,46,.18);
-    }
-
-    .home-return a:hover {
-      background: #155760;
-    }
-
     @media (max-width: 700px) {
       .page { padding: 14px 10px 48px; }
       .hero { padding: 28px; min-height: 62vh; }
@@ -312,6 +314,7 @@
           Après plusieurs semaines dans le Pacifique puis en Australie, l’avion descend entre les sommets enneigés des Alpes du Sud.
           Le lac Wakatipu apparaît sous l’aile de l’appareil : nous sommes enfin en Nouvelle-Zélande.
         </p>
+        <div class="logistics"><h4>Logistique vol / transfert</h4><div class="facts"><div class="fact"><strong>Vol précédent</strong>Sydney → Queenstown</div><div class="fact"><strong>Arrivée Queenstown</strong>14h05</div><div class="fact"><strong>Transfert hôtel</strong>environ 20 min</div><div class="fact"><strong>Arrivée The Rees</strong>vers 15h00 – 15h30</div></div><p class="logistics-note">La marge de l’après-midi dépendra du passage de l’immigration et de la récupération des bagages. L’objectif reste une installation douce, puis une première balade au bord du lac.</p></div>
         <div class="activity">
           <h4>Après-midi – 15h30 à 18h00</h4>
           <ul>
@@ -651,6 +654,7 @@
           <div class="fact"><strong>Départ ferry</strong>09h00</div>
           <div class="fact"><strong>Arrivée</strong>vers 12h30</div>
         </div>
+        <div class="logistics"><h4>Logistique vol / transfert</h4><div class="facts"><div class="fact"><strong>Départ Beachcomber</strong>07h25 – 07h30</div><div class="fact"><strong>Terminal ferry</strong>vers 07h35</div><div class="fact"><strong>Check-in ferry</strong>08h00 conseillé</div><div class="fact"><strong>Arrivée Wellington</strong>vers 12h30</div><div class="fact"><strong>Arrivée hôtel</strong>vers 13h15 – 13h45</div></div><p class="logistics-note">Même si l’hôtel est proche du terminal, il vaut mieux viser un check-in confortable. La traversée fait partie du voyage : ce n’est pas seulement une contrainte logistique.</p></div>
         <p>
           Conseil : privilégier les ponts extérieurs pendant la traversée des Marlborough Sounds.
         </p>
@@ -676,11 +680,6 @@
       Photos : Wikimedia Commons. Les fichiers utilisés sont référencés via leurs noms exacts sur Commons.
       Pour une publication définitive, prévoir une section “Crédits photos” avec auteurs et licences si le site est partagé publiquement.
     </p>
-
-
-    <div class="home-return">
-      <a href="index.html">← Retour à l’accueil</a>
-    </div>
 
   </main>
 </body>
